@@ -32,9 +32,9 @@ const paginator = (pNum) => {
 
         for(let i = 0; i < sections.length; i++) {
             if(i < current) {
-                sections[i].className = "section passed btn btn-info";
+                sections[i].className = "section passed btn btn-danger";
             } else if(i == current) {
-                sections[i].className = "section current btn btn-info";
+                sections[i].className = "section current btn btn-danger";
             } else if(i > current) {
                 sections[i].className = "section yet btn btn-secondary";
             }
