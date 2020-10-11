@@ -35,7 +35,6 @@ class Graph {
         );
 
         camera.position.set(80, 0, 0);
-        //camera.rotation.set(Math.PI/2, 0, 0, "XYZ");
         controls.target = new THREE.Vector3(2.5, 4.5, 25);
         controls.enablePan = false;
         controls.update();
