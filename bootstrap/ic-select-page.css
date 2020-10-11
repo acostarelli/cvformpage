@@ -1,0 +1,14 @@
+#ic-select-page {
+    flex-direction: column;
+}
+
+#canvas-container {
+    flex: 3;
+}
+
+#ic-sliders {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
