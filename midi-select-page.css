@@ -1,0 +1,60 @@
+div#midi-select-page {
+    flex-direction: column;
+}
+
+div#midi-select-page > div {
+    flex: 1;
+    display: flex;
+}
+
+input[name="show-modal"] {
+    display: none;
+}
+
+div#file-options {
+    display: flex;
+}
+div#file-options > label {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+div#file-options > div {
+    flex: 1;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+fieldset + p {
+    display: none;
+}
+fieldset:disabled + p {
+    display: block;
+}
+
+fieldset:disabled {
+    display: none;
+}
+
+div#midi-metadata {
+    display: flex;
+}
+
+div#metadata-table {
+    flex: 1;
+    display: flex;
+}
+div#group-by-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    flex: 1;
+}
