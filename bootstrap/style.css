@@ -72,9 +72,9 @@ div.visited {
     opacity: 0.5;
 }
 
-.circle {
+pre {
     border-radius: 50%;
-    font-size: 1em;
+    font-size: 1.5em;
     color: white;
 }
 

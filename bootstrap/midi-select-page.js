@@ -21,10 +21,10 @@ form["stock-midi"].addEventListener("input", populateMetadata);
 form["custom-midi"].addEventListener("input", populateMetadata);
 form["group-by"].addEventListener("input", populateMetadata);
 
-const fileInput = document.querySelector('#file-js-example input[type=file]');
+/*const fileInput = document.querySelector('#file-js-example input[type=file]');
 fileInput.onchange = () => {
     if (fileInput.files.length > 0) {
         const fileName = document.querySelector('#file-js-example .file-name');
         fileName.textContent = fileInput.files[0].name;
     }
-}
+}*/
