@@ -27,7 +27,7 @@ class Graph {
         );
         const baseLine = new THREE.Line(
             baseGeo,
-            new THREE.LineBasicMaterial({ color: 0x00ff00 })
+            new THREE.LineBasicMaterial({ color: 0x0000ff })
         );
         const modiLine = new THREE.Line(
             modiGeo,
