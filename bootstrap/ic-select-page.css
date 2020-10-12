@@ -7,6 +7,22 @@
 }
 
 #ic-sliders {
+    display: flex;
+    flex-direction: column;
+}
+
+#omnislider-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#omnislider-container input {
+    width: 100%;
+}
+
+#axialsliders-container {
     flex: 1;
     display: flex;
     justify-content: space-around;

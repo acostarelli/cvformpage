@@ -145,7 +145,7 @@ const devx = form["typex"];
 const devy = form["typey"];
 const devz = form["typez"];
 
-const input = () => {
+/*const input = () => {
     if(DEVELOPER) {
         graph.update(
             parseFloat(devx.value),
@@ -165,4 +165,53 @@ slidey.oninput = input;
 slidez.oninput = input;
 devx.oninput = input;
 devy.oninput = input;
-devz.oninput = input;
+devz.oninput = input;*/
+
+const states = [];
+for(let i = 0; i < 3; i++) {
+    for(let j = 0; j < 3; j++) {
+        for(let k = 0; k < 3; k++) {
+            states.push([i, j, k]);
+        }
+    }
+}
+
+const weirdinput = () => {
+    const map = {
+        0: 1,
+        1: 1.25,
+        2: 1.5
+    };
+
+    graph.update(
+        map[slidex.value],
+        map[slidey.value],
+        map[slidez.value]
+    );
+}
+
+const omni = form["omnislider"];
+omni.oninput = () => {
+    const state = states[parseInt(omni.value)];
+
+    slidex.value = state[0];
+    slidey.value = state[1];
+    slidez.value = state[2];
+
+    weirdinput();
+}
+slidex.oninput = () => {
+    for(const i in states) {
+        if(
+            slidex.value == states[i][0] &&
+            slidey.value == states[i][1] &&
+            slidez.value == states[i][2]
+        ) {
+            omni.value = i;
+        }
+    }
+
+    weirdinput();
+};
+slidey.oninput = slidex.oninput;
+slidez.oninput = slidex.oninput;
