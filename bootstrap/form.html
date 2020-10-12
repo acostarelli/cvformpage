@@ -183,23 +183,39 @@
                     <div id="ic-select-page" class="form-page-hidden">
                         <div id="canvas-container"></div>
                         <div id="ic-sliders" class="alert alert-warning">
-                            <div>
-                                <label for="slidex">X:</label>
-                                <input name="slidex" id="slidex" type="range" value="1" min="1" max="1.5" step="0.001">
+                            <div class="slider-container">
+                                <div>
+                                    <label for="slidex">X:</label>
+                                    <input name="slidex" id="slidex" type="range" value="1" min="1" max="1.5" step="0.001">
+                                </div>
+                                <div>
+                                    <input name="typex" id="typex" type="number">
+                                </div>
                             </div>
-                            <div>
-                                <label for="slidey">Y:</label>
-                                <input name="slidey" id="slidey" type="range" value="1" min="1" max="1.5" step="0.001">
+                            <div class="slider-container">
+                                <div>
+                                    <label for="slidey">Y:</label>
+                                    <input name="slidey" id="slidey" type="range" value="1" min="1" max="1.5" step="0.001">
+                                </div>
+                                <div>
+                                    <input name="typey" id="typey" type="number">
+                                </div>
                             </div>
-                            <div>
-                                <label for="slidez">Z:</label>
-                                <input name="slidez" id="slidez" type="range" value="1" min="1" max="1.5" step="0.001">
+                            <div class="slider-container">
+                                <div>
+                                    <label for="slidez">Z:</label>
+                                    <input name="slidez" id="slidez" type="range" value="1" min="1" max="1.5" step="0.001">
+                                </div>
+                                <div>
+                                    <input name="typez" id="typez" type="number">
+                                </div>
                             </div>
                         </div>
                     </div>
                     <footer id="submit-bar" class="alert alert-primary">
                         <input type="button" name="submit" value="Next" class="btn btn-primary">
                         <input type="button" name="show-modal" value="Submit" data-micromodal-trigger="modal-1" class="btn btn-success">
+                        <input type="button" name="developer" value="Toggle developer mode" class="btn btn-danger">
                     </footer>
                 </form>
             </div>

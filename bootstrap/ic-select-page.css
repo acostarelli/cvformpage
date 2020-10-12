@@ -12,3 +12,7 @@
     justify-content: space-around;
     align-items: center;
 }
+
+.slider-container div:nth-child(2) {
+    display: none;
+}

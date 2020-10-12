@@ -141,13 +141,28 @@ graph.start($$("#canvas-container")[0]);
 const slidex = $$("#slidex")[0];
 const slidey = $$("#slidey")[0];
 const slidez = $$("#slidez")[0];
+const devx = form["typex"];
+const devy = form["typey"];
+const devz = form["typez"];
+
 const input = () => {
-    graph.update(
-        parseFloat(slidex.value),
-        parseFloat(slidey.value),
-        parseFloat(slidez.value)
-    )
+    if(DEVELOPER) {
+        graph.update(
+            parseFloat(devx.value),
+            parseFloat(devy.value),
+            parseFloat(devz.value)
+        );
+    } else {
+        graph.update(
+            parseFloat(slidex.value),
+            parseFloat(slidey.value),
+            parseFloat(slidez.value)
+        );
+    }
 }
 slidex.oninput = input;
 slidey.oninput = input;
 slidez.oninput = input;
+devx.oninput = input;
+devy.oninput = input;
+devz.oninput = input;

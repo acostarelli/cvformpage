@@ -5,6 +5,8 @@ MicroModal.init();
 window.$$ = (s) => document.querySelectorAll(s);
 window.form = document.forms[0];
 
+window.DEVELOPER = false;
+
 const order = [
     $$("#midi-select-page")[0],
     $$("#algo-select-page")[0],
@@ -53,3 +55,18 @@ submit.addEventListener("click", paginator());
 for(let i = 0; i < sections.length; i++) {
     sections[i].addEventListener("click", paginator(i));
 }
+
+form["developer"].addEventListener("click", () => {
+    window.DEVELOPER = !window.DEVELOPER;
+
+    const containers = $$(".slider-container");
+    for(const container of containers) {
+        if(DEVELOPER) {
+            container.children[0].style.display = "none";
+            container.children[1].style.display = "block";
+        } else {
+            container.children[0].style.display = "block";
+            container.children[1].style.display = "none"
+        }
+    }
+});
