@@ -39,7 +39,8 @@ class Graph {
         controls.enablePan = false;
         controls.update();
 
-        scene.add(baseLine, modiLine);
+        //scene.add(baseLine, modiLine);
+        scene.add(modiLine, baseLine);
 
         this.renderer = renderer;
         this.scene = scene;
