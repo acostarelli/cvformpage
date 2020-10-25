@@ -1,0 +1,96 @@
+<html>
+    <head>
+        <link href="form2.css" rel="stylesheet">
+    </head>
+    <body>
+        <form>
+            <label>
+                Choose a MIDI input option:
+                <select name="midi-choice" >
+                    <option>Custom</option>
+                    <option>Stock</option>
+                </select>
+            </label>
+            <label>
+                Choose a custom MIDI file:
+                <input type="file" name="custom-midi">
+            </label>
+            <label>
+                Choose a stock MIDI file:
+                <select name="stock-midi">
+                    <option>Habanera</option>
+                    <option>MEGALOVANIA</option>
+                </select>
+            </label>
+            <label>
+                Choose a grouping method:
+                <select name="grouping">
+                    <option>Track</option>
+                    <option>Channel</option>
+                    <option>Instrument</option>
+                    <option>All-in-one</option>
+                </select>
+            </label>
+            <label>
+                Choose a variation method:
+                <select name="method" >
+                    <option>Pitch reversal</option>
+                    <option>Rhythm reversal</option>
+                    <option>Total reversal</option>
+                    <option>Inversion i4</option>
+                    <option>Inversion i5</option>
+                    <option>Prior event inversion i4</option>
+                    <option>Basic stenciling</option>
+                </select>
+            </label>
+            <label>
+                Choose a parsing method:
+                <select name="parsing" >
+                    <option>Pitch/chord</option>
+                    <option>Beat chunks</option>
+                </select>
+            </label>
+            <label>
+                Enter the size of the beat chunks:
+                <input type="number" name="chunks">
+            </label>
+            <label>
+                Enter the reference note:
+                <input name="ref-note">
+            </label>
+            <label>
+                Enter the interval:
+                <input name="interval">
+            </label>
+            <label>
+                Transplants match instrumentation:
+                <input type="checkbox" name="trans-match">
+            </label>
+            <label>
+                Transplants only:
+                <input type="checkbox" name="trans-only">
+            </label>
+            <label>
+                Omnislider:
+                <input type="range" name="omnislider" min="0" max="27" step="1" value="0">
+            </label>
+            <label>
+                X:
+                <input type="range" name="x" min="0" max="2" step="1" value="0">
+            </label>
+            <label>
+                Y:
+                <input type="range" name="y" min="0" max="2" step="1" value="0">
+            </label>
+            <label>
+                Z:
+                <input type="range" name="z" min="0" max="2" step="1" value="0">
+            </label>
+            <input type="submit">
+        </form>
+        <table id="metadata-table">
+
+        </table>
+        <div id="trajectories"></div>
+    </body>
+</html>

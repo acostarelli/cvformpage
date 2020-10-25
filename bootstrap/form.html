@@ -13,61 +13,44 @@
 "></script>
     </head>
     <body>
-        <div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
-            <div class="modal__overlay" tabindex="-1" data-micromodal-close>
-                <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-                    <header class="modal__header">
-                        <h2 class="modal__title" id="modal-1-title">
-                            Generated files
-                        </h2>
-                        <button class="modal__close" aria-label="Close modal" data-micromodal-close></button>
-                    </header>
-                    <main class="modal__content" id="modal-1-content">
-                        Show loading bar and then PDFs and MIDI download here
-                    </main>
-                    <footer class="modal__footer">
-                        <button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
-                    </footer>
-                </div>
-            </div>
+        <div id="variation-modal">
+
         </div>
-        <div class="contentt">
-            <div class="top-bar alert">
-                <div class="section current btn btn-info">
+        <div id="main">
+            <div id="top-bar">
+                <div>
                     <pre>1</pre>
                     Music
                 </div>
-                <div class="section yet btn btn-secondary">
+                <div>
                     <pre>2</pre>
                     Method
                 </div>
-                <div class="section yet btn btn-secondary">
+                <div>
                     <pre>3</pre>
                     Level
                 </div>
             </div>
-            <pre>
-</pre>
-            <div class="main-content">
+            <div id="form-content">
                 <form>
-                    <div id="midi-select-page" class="form-page-visible">
-                        <div id="file-options">
-                            <label for="custom-set-radio" class="alert alert-warning">
-                                <input checked id="custom-set-radio" type="radio" name="midi-choice" value="custom" class="form-check"/>
+                    <div>
+                        <div>
+                            <label for="custom-set-radio">
+                                <input checked/>
                                 <fieldset name="custom-set">
-                                    <input class="file-input form-control-file" type="file" name="custom-midi">
+                                    <input>
                                 </fieldset>
-                                <p class="content">
+                                <p>
                                     Submit a custom MIDI file
                                 </p>
                             </label>
-                            <label for="stock-set-radio" class="alert alert-dark">
-                                <input id="stock-set-radio" type="radio" name="midi-choice" value="stock" class="form-check">
+                            <label for="stock-set-radio">
+                                <input>
                                 <fieldset name="stock-set" disabled>
                                     <label for="stock-midi">
                                         Select a stock MIDI file:
-                                        <div class="select is-rounded">
-                                            <select name="stock-midi" id="stock-midi" class="form-control">
+                                        <div>
+                                            <select name="stock-midi">
                                                 <option>--</option>
                                                 <option>Habanera</option>
                                                 <option>MEGALOVANIA</option>
@@ -75,16 +58,16 @@
                                         </div>
                                     </label>
                                 </fieldset>
-                                <p class="content">
+                                <p>
                                     Select a stock MIDI file
                                 </p>
                             </label>
                         </div>
-                        <div id="midi-metadata">
-                            <div id="metadata-table" class="alert alert-dark">
-                                <table class="table is-bordered is-striped is-hoverable is-fullwidth">
+                        <div>
+                            <div id="metadata-section">
+                                <table>
                                     <thead>
-                                        <tr class="is-selected">
+                                        <tr>
                                             <th>Group</th>
                                             <th># of events</th>
                                             <th>Lowest</th>
@@ -93,7 +76,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr class="">
+                                        <tr>
                                             <td>This</td>
                                             <td>is</td>
                                             <td>a</td>
@@ -103,10 +86,10 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div id="group-by-container" class="alert alert-warning">
+                            <div id="grouping-section">
                                 <label for="group-by">Group by:</label>
-                                <div class="select is-rounded is-info">
-                                    <select name="group-by" id="group-by" class="form-control">
+                                <div>
+                                    <select name="group-by">
                                         <option>Track</option>
                                         <option>Channel</option>
                                         <option>Instrument</option>
@@ -116,11 +99,11 @@
                             </div>
                         </div>
                     </div>
-                    <div id="algo-select-page" class="form-page-hidden">
-                        <div id="algo-select" class="alert alert-warning">
+                    <div>
+                        <div>
                             <label for="algo">Choose a variation method:</label>
-                            <div class="select is-rounded is-info">
-                                <select id="algo" name="algo" class="form-control">
+                            <div>
+                                <select>
                                     <option>Pitch reversal</option>
                                     <option>Rhythm reversal</option>
                                     <option>Total reversal</option>
@@ -130,97 +113,97 @@
                                 </select>
                             </div>
                         </div>
-                        <div id="desc-box-container" class="alert alert-dark">
-                            <p class="content" id="desc"></p>
+                        <div>
+                            <p></p>
                         </div>
-                        <div id="more-options" class="alert alert-warning">
-                            <fieldset class="algopt" id="pitch_chord">
+                        <div>
+                            <fieldset>
                                 <label for="parsing">Parsing:</label>
-                                <div class="select is-rounded is-info">
-                                    <select id="parsing" name="parsing" class="form-control">
+                                <div>
+                                    <select>
                                         <option>Pitch/chord</option>
                                         <option>Beat chunks</option>
                                     </select>
                                 </div>
                             </fieldset>
-                            <fieldset class="algopt" id="beat_chunks">
+                            <fieldset>
                                 <label for="chunks">Chunk size:</label>
-                                <input type="number" id="chunks" value="2" class="form-control">
+                                <input type="number">
                             </fieldset>
-                            <fieldset class="algopt" id="ref_note">
+                            <fieldset>
                                 <label>
                                     Reference note:
-                                    <input name="ref_note" value="C5" class="form-control">
+                                    <input name="ref_note" value="C5">
                                 </label>
                             </fieldset>
-                            <fieldset class="algopt" id="interval">
+                            <fieldset>
                                 <label>
                                     Interval:
-                                    <input name="interval" value="m2u" class="form-control">
+                                    <input name="interval" value="m2u">
                                 </label>
                             </fieldset>
-                            <fieldset class="algopt" id="transplant">
+                            <fieldset>
                                 <label>
-                                    <input type="checkbox" name="trans_match" class="form-control">
+                                    <input type="checkbox" name="trans_match">
                                     Transplants match instrumentation
                                 </label>
                                 <label>
-                                    <input type="checkbox" name="trans_only" class="form-control">
+                                    <input type="checkbox" name="trans_only">
                                     Transplants only
                                 </label>
                             </fieldset>
                         </div>
-                        <div id="opt-descs" class="alert alert-dark">
-                            <p class="content" id="pitch_chord_desc">Choose to parse the MIDI file either by each pitch/chord or by beat chunks.</p>
-                            <p class="content" id="beat_chunks_desc">Choose the size of each beat chunk.</p>
-                            <p class="content" id="ref_note_desc">Ref note.</p>
-                            <p class="content" id="interval_desc">The interval to transpose.</p>
-                            <p class="content" id="transplant_desc">Transplants.</p>
+                        <div>
+                            <p>Choose to parse the MIDI file either by each pitch/chord or by beat chunks.</p>
+                            <p>Choose the size of each beat chunk.</p>
+                            <p>Ref note.</p>
+                            <p>The interval to transpose.</p>
+                            <p>Transplants.</p>
                         </div>
                         <!-- Bulma does something weird with bottom margins on the last element; this needs to be here. -->
                         <div style="display: none"></div>
                     </div>
-                    <div id="ic-select-page" class="form-page-hidden">
-                        <div id="canvas-container"></div>
-                        <div id="ic-sliders" class="alert alert-warning">
-                            <div id="omnislider-container">
-                                <input name="omnislider" id="omnislider" type="range" value="0" min="0" max="27" step="1">
+                    <div>
+                        <div></div>
+                        <div>
+                            <div>
+                                <input name="omnislider">
                             </div>
-                            <div id="axialsliders-container">
-                                <div class="slider-container">
+                            <div>
+                                <div>
                                     <div>
                                         <label for="slidex">X:</label>
-                                        <input name="slidex" id="slidex" type="range" value="0" min="0" max="2" step="1">
+                                        <input name="slidex">
                                     </div>
                                     <div>
-                                        <input name="typex" id="typex" type="number">
+                                        <input name="typex">
                                     </div>
                                 </div>
-                                <div class="slider-container">
+                                <div>
                                     <div>
                                         <label for="slidey">Y:</label>
-                                        <input name="slidey" id="slidey" type="range" value="0" min="0" max="2" step="1">
+                                        <input name="slidey">
                                     </div>
                                     <div>
-                                        <input name="typey" id="typey" type="number">
+                                        <input name="typey">
                                     </div>
                                 </div>
-                                <div class="slider-container">
+                                <div>
                                     <div>
                                         <label for="slidez">Z:</label>
-                                        <input name="slidez" id="slidez" type="range" value="0" min="0" max="2" step="1">
+                                        <input name="slidez">
                                     </div>
                                     <div>
-                                        <input name="typez" id="typez" type="number">
+                                        <input name="typez">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <footer id="submit-bar" class="alert alert-primary">
-                        <input type="button" name="submit" value="Next" class="btn btn-primary">
-                        <input type="button" name="show-modal" value="Submit" data-micromodal-trigger="modal-1" class="btn btn-success">
-                        <input type="button" name="developer" value="Toggle developer mode" class="btn btn-danger">
+                    <footer>
+                        <input type="button" name="submit" value="Next">
+                        <input type="button" name="show-modal" value="Submit" data-micromodal-trigger="modal-1">
+                        <input type="button" name="developer" value="Toggle developer mode">
                     </footer>
                 </form>
             </div>
