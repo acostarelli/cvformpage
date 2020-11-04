@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+            <form>
+                <div class="form-group">
+                    <label for="midi-choice">Choose a MIDI input option</label>
+                    <select name="midi-choice" id="midi-choice" class="custom-select">
+                        <option>Custom</option>
+                        <option>Stock</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" name="custom-midi" id="custom-midi" class="custom-file-input">
+                        <label for="custom-midi" class="custom-file-label">Choose a custom MIDI file</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="stock-midi">Choose a stock MIDI file:</label>
+                    <select name="stock-midi" id="stock-midi" class="custom-select">
+                        <option>Habanera</option>
+                        <option>MEGALOVANIA</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="grouping">Choose a grouping method:</label>
+                    <select name="grouping" id="grouping" class="custom-select">
+                        <option>Track</option>
+                        <option>Channel</option>
+                        <option>Instrument</option>
+                        <option>All-in-one</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="method">Choose a variation method:</label>
+                    <select name="method" id="method" class="custom-select">
+                        <option>Pitch reversal</option>
+                        <option>Rhythm reversal</option>
+                        <option>Total reversal</option>
+                        <option>Inversion i4</option>
+                        <option>Inversion i5</option>
+                        <option>Prior event inversion i4</option>
+                        <option>Basic stenciling</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="parsing">Choose a parsing method:</label>
+                    <select name="parsing" id="parsing" class="custom-select">
+                        <option>Pitch/chord</option>
+                        <option>Beat chunks</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="chunks">Enter the size of the beat chunks:</label>
+                    <input type="number" name="chunks" id="chunks" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="ref-note">Enter the reference note:</label>
+                    <input name="ref-note" id="ref-note" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="interval">Enter the interval:</label>
+                    <input name="interval" id="interval"class="form-control">
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="trans-match" id="trans-match" class="custom-control-input">
+                        <label for="trans-match" class="custom-control-label">Transplants match instrumentation</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="trans-only" id="trans-only" class="custom-control-input">
+                        <label for="trans-only" class="custom-control-label">Transplants only</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="omnislider">Omnislider:</label>
+                    <input type="range" name="omnislider" id="omnislider" min="0" max="27" step="1" value="0" class="custom-range">
+                </div>
+                <div class="form-group">
+                    <label for="x">X:</label>
+                    <input type="range" name="x" id="x" min="0" max="2" step="1" value="0" class="custom-range">
+                </div>
+                <div class="form-group">
+                    <label for="y">Y:</label>
+                    <input type="range" name="y" id="y" min="0" max="2" step="1" value="0" class="custom-range">
+                </div>
+                <div class="form-group">
+                    <label for="z">Z:</label>
+                    <input type="range" name="z" id="z" min="0" max="2" step="1" value="0" class="custom-range">
+                </div>
+                <input type="submit">
+            </form>
+        </div>
+        <table id="metadata-table">
+
+        </table>
+        <div id="trajectories"></div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    </body>
+</html>

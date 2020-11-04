@@ -1,96 +1,296 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
-        <link href="form2.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     </head>
     <body>
-        <form>
-            <label>
-                Choose a MIDI input option:
-                <select name="midi-choice" >
-                    <option>Custom</option>
-                    <option>Stock</option>
-                </select>
-            </label>
-            <label>
-                Choose a custom MIDI file:
-                <input type="file" name="custom-midi">
-            </label>
-            <label>
-                Choose a stock MIDI file:
-                <select name="stock-midi">
-                    <option>Habanera</option>
-                    <option>MEGALOVANIA</option>
-                </select>
-            </label>
-            <label>
-                Choose a grouping method:
-                <select name="grouping">
-                    <option>Track</option>
-                    <option>Channel</option>
-                    <option>Instrument</option>
-                    <option>All-in-one</option>
-                </select>
-            </label>
-            <label>
-                Choose a variation method:
-                <select name="method" >
-                    <option>Pitch reversal</option>
-                    <option>Rhythm reversal</option>
-                    <option>Total reversal</option>
-                    <option>Inversion i4</option>
-                    <option>Inversion i5</option>
-                    <option>Prior event inversion i4</option>
-                    <option>Basic stenciling</option>
-                </select>
-            </label>
-            <label>
-                Choose a parsing method:
-                <select name="parsing" >
-                    <option>Pitch/chord</option>
-                    <option>Beat chunks</option>
-                </select>
-            </label>
-            <label>
-                Enter the size of the beat chunks:
-                <input type="number" name="chunks">
-            </label>
-            <label>
-                Enter the reference note:
-                <input name="ref-note">
-            </label>
-            <label>
-                Enter the interval:
-                <input name="interval">
-            </label>
-            <label>
-                Transplants match instrumentation:
-                <input type="checkbox" name="trans-match">
-            </label>
-            <label>
-                Transplants only:
-                <input type="checkbox" name="trans-only">
-            </label>
-            <label>
-                Omnislider:
-                <input type="range" name="omnislider" min="0" max="27" step="1" value="0">
-            </label>
-            <label>
-                X:
-                <input type="range" name="x" min="0" max="2" step="1" value="0">
-            </label>
-            <label>
-                Y:
-                <input type="range" name="y" min="0" max="2" step="1" value="0">
-            </label>
-            <label>
-                Z:
-                <input type="range" name="z" min="0" max="2" step="1" value="0">
-            </label>
-            <input type="submit">
-        </form>
-        <table id="metadata-table">
+        <div class="container">
+            <nav>
+                <div class="nav nav-tabs nav-justified mb-3" role="tablist">
+                    <a class="nav-link active" id="nav-music-tab" data-toggle="tab" href="#nav-music" role="tab" aria-controls="nav-music" aria-selected="true">Step 1: Music</a>
+                    <a class="nav-link" id="nav-method-tab" data-toggle="tab" href="#nav-method" role="tab" aria-controls="nav-method" aria-selected="false">Step 2: Method</a>
+                    <a class="nav-link" id="nav-madness-tab" data-toggle="tab" href="#nav-madness" role="tab" aria-controls="nav-madness" aria-selected="false">Step 3: Madness</a>
+                </div>
+            </nav>
+            <form class="tab-content">
+                <div class="tab-pane fade show active" id="nav-music" role="tabpanel" aria-labelledby="nav-music-tab">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row justify-content-center">
+                                <div class="col-6">
+                                    <div class="list-group" id="list-tab" role="tablist">
 
-        </table>
-        <div id="trajectories"></div>
+                                        <a class="list-group-item list-group-item-action active" id="list-custom-list" data-toggle="list" href="#list-custom" role="tab" aria-controls="custom">
+                                            <label class="btn btn-secondary">
+                                                <input type="radio" name="test"> Custom
+                                            </label>
+                                        </a>
+                                        <a class="list-group-item list-group-item-action" id="list-stock-list" data-toggle="list" href="#list-stock" role="tab" aria-controls="stock">Stock</a>
+                                    </div>
+                                    <!--<label class="form-group" class="form-group">
+                                        Choose a MIDI input option:
+                                        <select name="midi-choice" class="form-control-sm">
+                                            <option>Custom</option>
+                                            <option>Stock</option>
+                                        </select>
+                                    </label>-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Choose a grouping method:
+                                        <select name="grouping" class="form-control-sm">
+                                            <option>Track</option>
+                                            <option>Channel</option>
+                                            <option>Instrument</option>
+                                            <option>All-in-one</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!--<div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Choose a custom MIDI file:
+                                        <input type="file" name="custom-midi" class="form-control-file">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Choose a stock MIDI file:
+                                        <select name="stock-midi" class="form-control-sm">
+                                            <option>Habanera</option>
+                                            <option>MEGALOVANIA</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>-->
+                            <div class="row">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="list-custom" role="tabpanel" aria-labelledby="list-custom-list">
+                                        <label class="form-group">
+                                            Choose a custom MIDI file:
+                                            <input type="file" name="custom-midi" class="form-control-file">
+                                        </label>
+                                    </div>
+                                    <div class="tab-pane fade" id="list-stock" role="tabpanel" aria-labelledby="list-stock-list">
+                                        <label class="form-group">
+                                            Choose a stock MIDI file:
+                                            <select name="stock-midi" class="form-control-sm">
+                                                <option>Habanera</option>
+                                                <option>MEGALOVANIA</option>
+                                            </select>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <table class="table table-bordered table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Group</th>
+                                                <th># of events</th>
+                                                <th>Lowest</th>
+                                                <th>Highest</th>
+                                                <th>Inlude?</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>--</td>
+                                                <td>--</td>
+                                                <td>--</td>
+                                                <td>--</td>
+                                                <td>--</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="nav-method" role="tabpanel" aria-labelledby="nav-method-tab">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="list-group" role="tablist">
+                                <a class="list-group-item list-group-item-action active" id="list-pitch-reversal-list" data-toggle="list" href="#list-pitch-reversal" role="tab" aria-controls="pitch-reversal">Pitch Reversal</a>
+                                <a class="list-group-item list-group-item-action" id="list-rhythm-reversal-list" data-toggle="list" href="#list-rhythm-reversal" role="tab" aria-controls="rhythm-reversal">Rhythm Reversal</a>
+                                <a class="list-group-item list-group-item-action" id="list-basic-stenciling-list" data-toggle="list" href="#list-basic-stenciling" role="tab" aria-controls="basic-stenciling">Basic stenciling</a>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="list-pitch-reversal" role="tabpanel" aria-labelledby="list-pitch-reversal-list">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="parsing">Parse MIDI file by</span>
+                                        </div>
+                                        <select name="parsing" id="parsing" class="custom-select">
+                                            <option>Pitch/chord</option>
+                                            <option>n-beat chunks</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="number" name="chunks" id="chunks" class="form-control">
+                                        <div class="input-group-append">
+                                            <label class="input-group-text" for="chunks">-beat chunks</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="list-rhythm-reversal" role="tabpanel" aria-labelledby="list-rhythm-reversal-list">
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <label class="input-group-text" for="parsing">Parse MIDI file by</span>
+                                        </div>
+                                        <select name="parsing" id="parsing" class="custom-select">
+                                            <option>Pitch/chord</option>
+                                            <option>n-beat chunks</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <input type="number" name="chunks" id="chunks" class="form-control">
+                                        <div class="input-group-append">
+                                            <label class="input-group-text" for="chunks">-beat chunks</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="list-basic-stenciling" role="tabpanel" aria-labelledby="list-basic-stenciling-list">
+                                    <div class="input-group mb-3">
+                                        <input type="number" name="chunks" id="chunks" class="form-control">
+                                        <div class="input-group-append">
+                                            <label class="input-group-text" for="chunks">-beat chunks</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--<div class="col">
+                            <label class="form-group">
+                                Choose a variation method:
+                                <select name="method" class="form-control-sm">
+                                    <option>Pitch reversal</option>
+                                    <option>Rhythm reversal</option>
+                                    <option>Total reversal</option>
+                                    <option>Inversion i4</option>
+                                    <option>Inversion i5</option>
+                                    <option>Prior event inversion i4</option>
+                                    <option>Basic stenciling</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Choose a parsing method:
+                                        <select name="parsing" class="form-control-sm">
+                                            <option>Pitch/chord</option>
+                                            <option>Beat chunks</option>
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Enter the size of the beat chunks:
+                                        <input type="number" name="chunks" class="form-control-sm">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Enter the reference note:
+                                        <input name="ref-note" class="form-control-sm">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Enter the interval:
+                                        <input name="interval" class="form-control-sm">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Transplants match instrumentation:
+                                        <!- Move outside of label?
+                                        <input type="checkbox" name="trans-match">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Transplants only:
+                                        <!- Move outisde of label?
+                                        <input type="checkbox" name="trans-only">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="row tab-pane fade" id="nav-madness" role="tabpanel" aria-labelledby="nav-madness-tab">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <label class="form-group">
+                                    Omnislider:
+                                    <input type="range" name="omnislider" class="form-control-range" min="0" max="27" step="1" value="0">
+                                </label>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        X:
+                                        <input type="range" name="x" class="form-control-range" min="0" max="2" step="1" value="0">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Y:
+                                        <input type="range" name="y" class="form-control-range" min="0" max="2" step="1" value="0">
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label class="form-group">
+                                        Z:
+                                        <input type="range" name="z" class="form-control-range" min="0" max="2" step="1" value="0">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div id="trajectories">Trajectories</div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="row">
+                    <div class="col">
+                        <input type="submit" class="btn btn-primary">
+                    </div>
+                </div>-->
+            </form>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     </body>
 </html>
