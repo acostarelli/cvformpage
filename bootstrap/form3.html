@@ -61,11 +61,27 @@
                 </div>
                 <div class="form-group">
                     <label for="ref-note">Enter the reference note:</label>
-                    <input name="ref-note" id="ref-note" class="form-control">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <select class="custom-select">
+                                <option>Test</option>
+                                <option>Foo</option>
+                            </select>
+                        </div>
+                        <input name="ref-note" id="ref-note" class="form-control">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="interval">Enter the interval:</label>
-                    <input name="interval" id="interval"class="form-control">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Sample prepend</span>
+                        </div>
+                        <input name="interval" id="interval"class="form-control">
+                        <div class="input-group-append">
+                            <span class="input-group-text">Sample append</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="custom-control custom-checkbox">
