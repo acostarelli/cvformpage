@@ -15,7 +15,7 @@ class Graph {
         const baseGeo = new THREE.BufferGeometry();
         const modiGeo = new THREE.BufferGeometry();
 
-        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setSize(window.innerWidth, 0.75 * window.innerHeight);
 
         baseGeo.setAttribute(
             "position",
@@ -137,7 +137,7 @@ class Graph {
 }
 
 const graph = new Graph();
-graph.start(document.getElementById("trajectories"));
+//graph.start(document.getElementById("trajectories"));
 
 const slidex = form["x"];
 const slidey = form["y"];
