@@ -3,70 +3,50 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <!--<link href="form3.css" rel="stylesheet">-->
     </head>
     <body>
         <div class="container">
             <form>
                 <!------------------>
-                <!--<div class="form-group">
-                    <label for="midi-choice">Choose a MIDI input option</label>
-                    <select name="midi-choice" id="midi-choice" class="custom-select">
-                        <option>Custom</option>
-                        <option>Stock</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <div class="custom-file">
-                        <input type="file" name="custom-midi" id="custom-midi" class="custom-file-input">
-                        <label for="custom-midi" class="custom-file-label">Choose a custom MIDI file</label>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="midi-choice">Choose a MIDI input option:</label>
+                        <select name="midi-choice" id="midi-choice" class="custom-select">
+                            <option>Custom</option>
+                            <option>Stock</option>
+                        </select>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="stock-midi">Choose a stock MIDI file:</label>
-                    <select name="stock-midi" id="stock-midi" class="custom-select">
-                        <option>Habanera</option>
-                        <option>MEGALOVANIA</option>
-                    </select>
-                </div>-->
-                <div class="form-row">
-                    <div class="form-group col">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Use a MIDI file that is</span>
-                                <select name="midi-choice" id="midi-choice" class="custom-select">
-                                    <option>Custom</option>
-                                    <option>Stock</option>
-                                </select>
-                            </div>
-                            <div class="custom-file">
-                                <input type="file" name="custom-midi" id="custom-midi" class="custom-file-input">
-                                <label for="custom-midi" class="custom-file-label">Choose a custom MIDI file</label>
-                            </div>
-                            <select name="stock-midi" id="stock-midi" class="custom-select" style="display: none;">
-                                <option>Select a stock MIDI file</option>
-                                <option>Habanera</option>
-                                <option>MEGALOVANIA</option>
-                            </select>
+                <div id="custom-midi-container" class="form-row justify-content-end">
+                    <div class="form-group col-10">
+                        <div class="custom-file">
+                            <input type="file" name="custom-midi" id="custom-midi" class="custom-file-input">
+                            <label for="custom-midi" class="custom-file-label">Choose a custom MIDI file</label>
                         </div>
                     </div>
                 </div>
-                <!----------------------->
-                <div class="form-row">
-                    <div class="form-group col">
-                        <div class="input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Group the MIDI file by</span>
-                            </div>
-                            <select name="grouping" id="grouping" class="custom-select">
-                                <option>Track</option>
-                                <option>Channel</option>
-                                <option>Instrument</option>
-                                <option>All-in-one</option>
-                            </select>
-                        </div>
+                <div id="stock-midi-container" class="form-row justify-content-end">
+                    <div class="form-group col-10">
+                        <label for="stock-midi">Choose a stock MIDI file:</label>
+                        <select name="stock-midi" id="stock-midi" class="custom-select">
+                            <option>Habanera</option>
+                            <option>MEGALOVANIA</option>
+                        </select>
                     </div>
-                    <div class="col">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        <label for="grouping">Choose a grouping method:</label>
+                        <select name="grouping" id="grouping" class="custom-select">
+                            <option>Track</option>
+                            <option>Channel</option>
+                            <option>Instrument</option>
+                            <option>All-in-one</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row justify-content-end">
+                    <div class="col-10">
                         <table class="table table-bordered table-sm">
                             <thead>
                                 <tr>
@@ -89,123 +69,125 @@
                         </table>
                     </div>
                 </div>
+                <hr>
                 <div class="form-row">
-                    <div class="form-group col">
+                    <div class="form-group col-12">
+                        <label for="method">Choose a variation method:</label>
+                        <select name="method" id="method" class="custom-select">
+                            <option value="pr,pc">Pitch reversal</option>
+                            <option value="rr,pc">Rhythm reversal</option>
+                            <option value="tr,pc">Total reversal</option>
+                            <option value="i4,pc,rn">Inversion i4</option>
+                            <option value="i5,pc,rn">Inversion i5</option>
+                            <option value="pi4,pc,rn">Prior event inversion i4</option>
+                            <option value="bs">Basic stenciling</option>
+                            <option value="st,tr">Stenciling with Transplants</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="parsing-container" class="form-row justify-content-end">
+                    <div class="form-group col-10">
+                        <label for="parsing">Choose a parsing method:</label>
+                        <select name="parsing" id="parsing" class="custom-select">
+                            <option>by pitch/chord</option>
+                            <option>n-beat chunks</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="chunks-container" class="form-row justify-content-end">
+                    <div class="form-group col-10">
+                        <label for="chunks">Enter the size of the beat chunks:</label>
+                        <input type="number" name="chunks" id="chunks" class="form-control" value="2">
+                    </div>
+                </div>
+                <div id="ref-note-container" class="form-row justify-content-end algo-opt">
+                    <div class="form-group col-10">
+                        <label for="ref-note">Enter the reference note:</label>
+                        <div name="ref-note-root" class="input-group">
+                            <select class="custom-select">
+                                <option>A</option>
+                                <option>Bb/A#</option>
+                                <option>B</option>
+                                <option selected>C</option>
+                                <option>C#/Db</option>
+                                <option>D</option>
+                                <option>Eb/D#</option>
+                                <option>E</option>
+                                <option>F</option>
+                                <option>F#/Gb</option>
+                                <option>G</option>
+                                <option>Ab/G#</option>
+                            </select>
+                            <input type="number" name="ref-note-octave" id="ref-note-octave" class="form-control" value="5">
+                        </div>
+                    </div>
+                </div>
+                <div id="interval-container" class="form-row justify-content-end algo-opt">
+                    <div class="form-group col-10">
                         <div class="input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Use the variation method</span>
+                                <span class="input-group-text">Use an interval of</span>
                             </div>
-                            <select name="method" id="method" class="custom-select">
-                                <option value="pr,pc">Pitch reversal</option>
-                                <option value="rr,pc">Rhythm reversal</option>
-                                <option value="tr,pc">Total reversal</option>
-                                <option value="i4,pc,rn">Inversion i4</option>
-                                <option value="i5,pc,rn">Inversion i5</option>
-                                <option value="pi4,pc,rn">Prior event inversion i4</option>
-                                <option value="bs">Basic stenciling</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-row">
-                            <div class="form-group col">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Parse by the MIDI file by</span>
-                                    </div>
-                                    <select name="parsing" id="parsing" class="custom-select">
-                                        <option>each pitch/chord</option>
-                                        <option>n-beat chunks</option>
-                                    </select>
-                                    <span class="input-group-text chunk-input" style="display: none;">with a size of</span>
-                                    <input type="number" name="chunks" id="chunks" class="form-control chunk-input" style="display: none;">
-                                    <div class="input-group-append chunk-input" style="display: none;">
-                                        <span class="input-group-text">beats</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div id="ref-note-container" class="form-group col algo-opt">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Use</span>
-                                    </div>
-                                    <select class="custom-select">
-                                        <option>A</option>
-                                        <option>Bb/A#</option>
-                                        <option>B</option>
-                                        <option>C</option>
-                                        <option>C#/Db</option>
-                                        <option>D</option>
-                                        <option>Eb/D#</option>
-                                        <option>E</option>
-                                        <option>F</option>
-                                        <option>F#/Gb</option>
-                                        <option>G</option>
-                                        <option>Ab/G#</option>
-                                    </select>
-                                    <input type="number" name="ref-note-octave" id="ref-note-octave" class="form-control" value="5">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">as a reference note</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div id="interval-container" class="form-group col algo-opt">
-                                <div class="input-group">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text">Use an interval of</span>
-                                    </div>
-                                    <input type="number" name="interval" id="interval" class="form-control">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">semitones</span>
-                                        <select class="custom-select">
-                                            <option>up</option>
-                                            <option>down</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div id="trans-match-container" class="form-group col algo-opt">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="trans-match" id="trans-match" class="custom-control-input">
-                                    <label for="trans-match" class="custom-control-label">Transplants match instrumentation</label>
-                                </div>
-                            </div>
-                            <div id="trans-only-container" class="form-group col algo-opt">
-                                <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" name="trans-only" id="trans-only" class="custom-control-input">
-                                    <label for="trans-only" class="custom-control-label">Transplants only</label>
-                                </div>
+                            <input name="interval" id="interval" class="form-control">
+                            <div class="input-group-append">
+                                <span class="input-group-text">semitones</span>
+                                <select class="custom-select">
+                                    <option>up</option>
+                                    <option>down</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="omnislider">Omnislider:</label>
-                    <input type="range" name="omnislider" id="omnislider" min="0" max="27" step="1" value="0" class="custom-range">
+                <div id="trans-container" class="form-row justify-content-end algo-opt">
+                    <div class="form-group col-5">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="trans-match" id="trans-match" class="custom-control-input">
+                            <label for="trans-match" class="custom-control-label">Transplants match instrumentation</label>
+                        </div>
+                    </div>
+                    <div class="form-group col-5">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="trans-only" id="trans-only" class="custom-control-input">
+                            <label for="trans-only" class="custom-control-label">Transplants only</label>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="x">X:</label>
-                    <input type="range" name="x" id="x" min="0" max="2" step="1" value="0" class="custom-range">
+                <hr>
+                <div class="form-row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label for="omnislider">Omnislider:</label>
+                            <input type="range" name="omnislider" id="omnislider" min="0" max="27" step="1" value="0" class="custom-range">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-row">
+                            <label for="x">X:</label>
+                            <input type="range" name="x" id="x" min="0" max="2" step="1" value="0" class="custom-range">
+                        </div>
+                        <div class="form-row">
+                            <label for="y">Y:</label>
+                            <input type="range" name="y" id="y" min="0" max="2" step="1" value="0" class="custom-range">
+                        </div>
+                        <div class="form-row">
+                            <label for="z">Z:</label>
+                            <input type="range" name="z" id="z" min="0" max="2" step="1" value="0" class="custom-range">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="y">Y:</label>
-                    <input type="range" name="y" id="y" min="0" max="2" step="1" value="0" class="custom-range">
+                <div class="form-row justify-content-center m-3">
+                    <div class="col-10">
+                        <div id="trajectories"></div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="z">Z:</label>
-                    <input type="range" name="z" id="z" min="0" max="2" step="1" value="0" class="custom-range">
+                <div class="form-row justify-content-center">
+                    <input type="submit" class="btn btn-primary">
                 </div>
-                <input type="submit" class="btn btn-primary">
             </form>
         </div>
-        <div id="trajectories"></div>
         <script src="form3.js"></script>
+        <script src="ic-select-page.js" type="module"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     </body>

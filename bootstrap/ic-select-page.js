@@ -40,6 +40,7 @@ class Graph {
         controls.update();
 
         scene.add(modiLine, baseLine);
+        scene.background = new THREE.Color(0xd2d2d2);
 
         this.renderer = renderer;
         this.scene = scene;
@@ -136,14 +137,11 @@ class Graph {
 }
 
 const graph = new Graph();
-graph.start($$("#canvas-container")[0]);
+graph.start(document.getElementById("trajectories"));
 
-const slidex = $$("#slidex")[0];
-const slidey = $$("#slidey")[0];
-const slidez = $$("#slidez")[0];
-const devx = form["typex"];
-const devy = form["typey"];
-const devz = form["typez"];
+const slidex = form["x"];
+const slidey = form["y"];
+const slidez = form["z"];
 
 /*const input = () => {
     if(DEVELOPER) {
