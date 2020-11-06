@@ -137,7 +137,7 @@ class Graph {
 }
 
 const graph = new Graph();
-//graph.start(document.getElementById("trajectories"));
+graph.start(document.getElementById("trajectories"));
 
 const slidex = form["x"];
 const slidey = form["y"];
