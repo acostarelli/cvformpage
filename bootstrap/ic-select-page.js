@@ -34,13 +34,16 @@ class Graph {
             new THREE.LineBasicMaterial({ color: 0xff0000 })
         );
 
+        baseLine.renderOrder = 1;
+        modiLine.renderOrder = 0;
+
         camera.position.set(80, 0, 0);
         controls.target = new THREE.Vector3(2.5, 4.5, 25);
         controls.enablePan = false;
+        controls.enableZoom = false;
         controls.update();
 
         scene.add(modiLine, baseLine);
-        scene.background = new THREE.Color(0xd2d2d2);
 
         this.renderer = renderer;
         this.scene = scene;
